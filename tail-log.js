@@ -10,7 +10,6 @@ for (i in files) {
     function (line) {
       var analysis = analyse(line);
       console.log(analysis);
-      console.log(mp.convert(analysis));
       context.post(mp.convert(analysis));
     });
 }
