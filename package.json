@@ -4,5 +4,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ef-gy/analyticsd"
+  },
+  "dependencies": {
+    "minimist": "~1.1.0"
   }
 }

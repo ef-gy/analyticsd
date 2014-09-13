@@ -2,15 +2,10 @@
 
 var tail = require('./lib/tail').tail,
     analyse = require('./lib/analyse').analyse,
-    mp = require('./lib/measurement-protocol');
-
-if (process.argv.length < 3) {
-    console.log(process.argv[1] + ' TID [log...]');
-    return;
-}
-
-var files = process.argv.slice(3),
-    context = mp.context(process.argv[2]);
+    mp = require('./lib/measurement-protocol'),
+    configuration = require('./lib/configuration'),
+    files = configuration.files,
+    context = mp.context(configuration.tid);
 
 for (i in files) {
   tail(files[i],
