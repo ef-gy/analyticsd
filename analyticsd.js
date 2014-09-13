@@ -6,10 +6,10 @@ var tail = require('./lib/tail').tail,
     configuration = require('./lib/configuration'),
     context = mp.context(configuration.tid);
 
-for (i in configuration.tail) {
-  tail(configuration.tail[i],
+configuration.tail.forEach(function(value) {
+  tail(value,
     function (line) {
       var analysis = analyse(line);
       context.post(mp.convert(analysis));
     });
-}
+});
