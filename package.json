@@ -1,8 +1,13 @@
 {
   "name": "analyticsd",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "analyticsd.js",
   "description": "Daemon to classify syslog events and upload them to Google Analytics",
+  "author": {
+    "name": "Magnus Deininger",
+    "email": "magnus@ef.gy",
+    "url": "https://ef.gy/"
+  },
   "bin": {
     "analyticsd": "bin/analyticsd-cli.js"
   },
@@ -12,5 +17,6 @@
   },
   "dependencies": {
     "minimist": "~1.1.0"
-  }
+  },
+  "license": "MIT"
 }
