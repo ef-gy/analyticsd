@@ -39,7 +39,7 @@ this purpose, like so:
 
     # nohup analyticsd --tid UA-XXXXX-Y &
 
-To launch the daemon ot boot time, add a line like the previous to your
+To launch the daemon at boot time, add a line like the previous to your
 /etc/rc.local - before any exit; instructions, if there are any.
 
 Further options may be documented in the daemon's man page:
