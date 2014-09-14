@@ -6,7 +6,7 @@ This means that by running this daemon you will be able to analyse some events
 that show up in your syslog by means of Google Analytics, alongside your web
 site access statistics.
 
-Log output recognised by this daemon are sent to Google Analytics by means of
+Log output recognised by this daemon is sent to Google Analytics by means of
 the Measurement Protocol. This means you need to have Universal Analytics
 enabled for your property.
 
