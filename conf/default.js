@@ -13,5 +13,7 @@ module.exports = {
       'label': 'el',
       'page': 'p'
     }
-  }
+  },
+  'user': 'daemon',
+  'group': 'adm'
 };
