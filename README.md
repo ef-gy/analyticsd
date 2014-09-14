@@ -44,7 +44,7 @@ To launch the daemon at boot time, add a line like the previous to your
 
 Further options may be documented in the daemon's man page:
 
-    $ man analyticsd &
+    $ man analyticsd
 
 NOTE: You should use a separate ID from your 'normal' Google Analytics ID, at
 least while testing. If you later decide to use a single ID for both the events
