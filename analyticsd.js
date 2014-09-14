@@ -8,8 +8,9 @@ var tail = require('./lib/tail').tail,
 
 configuration.tail.forEach(function(value) {
   tail(value,
-    function (line) {
-      var analysis = analyse(line);
-      context.post(mp.convert(analysis));
-    });
+       function (line) {
+         var analysis = analyse(line);
+         context.post(mp.convert(analysis));
+       },
+       null, configuration.backfill);
 });
