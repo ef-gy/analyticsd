@@ -1,0 +1,31 @@
+.\" Process this file with
+.\" groff -man -Tascii foo.1
+.\"
+.TH analyticsd 1 "SEPTEMBER 2014" analyticsd "User Manuals"
+.SH NAME
+analyticsd \- analyse parts of syslog and uplaod certain events to Google
+Analytics
+.SH SYNOPSIS
+.B analyticsd [--tid
+.I tracking-id
+.B ]
+.SH DESCRIPTION
+.B analyticsd
+is a system daemon that analyses syslog messages to send events to Google
+Analytics. The daemon will tail common log files and parse lines with regular
+expressions. Matching lines, e.g. failed SSH logins, are transformed into
+events and sent via the Measurement Protocol.
+.SH OPTIONS
+.IP --tid
+Set the Tracking ID to associate with events. The default is not set, so events
+will not be tracked after being sent.
+.SH EXAMPLES
+The daemon will not spawn into the background and you'll have to give it a
+Tracking ID. Typical default command line looks like this:
+.IP "nohup analyticsd --tid UA-XXXXX-Y &"
+This sets the Tracking ID to
+.B UA-XXXXX-Y
+and spawns the programme in the background using nohup and &.
+.SH AUTHORS
+Magnus Deininger <magnus@ef.gy>
+.SH "SEE ALSO"
