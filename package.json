@@ -1,7 +1,11 @@
 {
   "name": "analyticsd",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "analyticsd.js",
+  "description": "Daemon to classify syslog events and upload them to Google Analytics",
+  "bin": {
+    "analyticsd": "bin/analytiscd-cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/ef-gy/analyticsd"
