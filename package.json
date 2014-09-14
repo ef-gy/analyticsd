@@ -4,7 +4,7 @@
   "main": "analyticsd.js",
   "description": "Daemon to classify syslog events and upload them to Google Analytics",
   "bin": {
-    "analyticsd": "bin/analytiscd-cli.js"
+    "analyticsd": "bin/analyticsd-cli.js"
   },
   "repository": {
     "type": "git",
