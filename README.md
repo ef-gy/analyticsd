@@ -3,8 +3,8 @@ analyticsd
 
 node.js daemon to classify syslog events and upload them to Google Analytics.
 This means that by running this daemon you will be able to analyse some events
-that show up in your syslog by means of Google Analytics, alongside your web
-site access statistics.
+that show up in your syslog using Google Analytics, alongside your web site
+access statistics.
 
 Log output recognised by this daemon is sent to Google Analytics by means of
 the Measurement Protocol. This means you need to have Universal Analytics
