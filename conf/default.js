@@ -14,6 +14,19 @@ module.exports = {
       'page': 'p'
     }
   },
+  'analyse': {
+    'pattern': [
+      { 'match': /(.+) ([^ ]+) scanlogd: (.+) to .+/,
+        'template': { 'date': 1,
+                      'host': 2,
+                      'type': 'event',
+                      'category': 'Service',
+                      'action': 'scanlogd',
+                      'label': 'PortScan',
+                      'session': '0',
+                      'address': 3  } }
+    ]
+  },
   'user': 'daemon',
   'group': 'adm'
 };
