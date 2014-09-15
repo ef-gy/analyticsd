@@ -6,11 +6,10 @@ var tail = require('../lib/tail').tail,
     configuration = require('../lib/configuration'),
     context = mp.context(configuration.tid);
 
-configuration.tail.forEach(function(value) {
-  tail(value,
+for (i in configuration.tail) {
+  tail(configuration.tail[i],
        function (line) {
-         var analysis = analyse(line);
-         context.post(mp.convert(analysis));
+         return context.post(mp.convert(analyse(line)));
        },
        null, configuration.backfill);
-});
+}
