@@ -28,5 +28,6 @@ module.exports = {
     ]
   },
   'user': 'daemon',
-  'group': 'adm'
+  'group': 'adm',
+  'include': '/etc/analyticsd/analyticsd.js'
 };
