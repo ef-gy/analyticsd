@@ -17,6 +17,7 @@ module.exports = {
   },
   'analyse': {
     'pattern': [
+      // OpenSSH patterns
       { 'match': /(.+) ([^ ]+) sshd.([0-9]+).: invalid user (.+) from (.+)/i,
         'template': { 'date': 1,
                       'host': 2,
@@ -75,6 +76,7 @@ module.exports = {
                       'label': 'PossibleBreakInAttempt',
                       'session': 3,
                       'address': 4 } },
+      // scanlogd patterns
       { 'match': /(.+) ([^ ]+) scanlogd: (.+) to .+/,
         'template': { 'date': 1,
                       'host': 2,
@@ -83,7 +85,40 @@ module.exports = {
                       'action': 'scanlogd',
                       'label': 'PortScan',
                       'session': '0',
-                      'address': 3  } }
+                      'address': 3  } },
+      // kippo log patterns
+      { 'match': /([^ ]+ [^ ]+) .+,(.+). .+ trying auth (.+)/,
+        'template': { 'date': 1,
+                      'session': '0',
+                      'type': 'event',
+                      'category': 'HoneypotService',
+                      'action': 'SSH',
+                      'label': [ 'TryingAuth:', 3 ],
+                      'address': 2 } },
+      { 'match': /([^ ]+ [^ ]+) .+,([0-9]+),(.+). login attempt \[(.+)\/(.+)\] failed/,
+        'template': { 'date': 1,
+                      'session': 2,
+                      'type': 'event',
+                      'category': 'HoneypotService',
+                      'action': 'SSH',
+                      'label': [ 'LoginAttemptFailed:', 4, ':', 5 ],
+                      'address': 3 } },
+      { 'match': /([^ ]+ [^ ]+) .+,([0-9]+),(.+). login attempt \[(.+)\/(.+)\] succeeded/,
+        'template': { 'date': 1,
+                      'session': 2,
+                      'type': 'event',
+                      'category': 'HoneypotService',
+                      'action': 'SSH',
+                      'label': [ 'LoginAttemptSucceeded:', 4, ':', 5 ],
+                      'address': 3 } },
+      { 'match': /([^ ]+ [^ ]+) .+,([0-9]+),(.+). connection lost/,
+        'template': { 'date': 1,
+                      'session': 2,
+                      'type': 'event',
+                      'category': 'HoneypotService',
+                      'action': 'SSH',
+                      'label': 'ConnectionLost',
+                      'address': 3 } }
     ]
   },
   'user': 'daemon',
