@@ -9,7 +9,7 @@ var tail = require('../lib/tail').tail,
 for (i in configuration.tail) {
   tail(configuration.tail[i],
        function (line) {
-         return context.post(mp.convert(analyse(line)));
+         return context.post(analyse(line));
        },
        null, configuration.backfill);
 }
