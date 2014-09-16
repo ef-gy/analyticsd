@@ -88,5 +88,7 @@ module.exports = {
   },
   'user': 'daemon',
   'group': 'adm',
+  'daemon': false,
+  'pid': '/var/run/analyticsd.pid',
   'include': '/etc/analyticsd/analyticsd.js'
 };
