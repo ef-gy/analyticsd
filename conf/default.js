@@ -1,7 +1,10 @@
 module.exports = {
   'tail': ['/var/log/auth.log', '/var/log/daemon.log'],
   'tid': null,
-  'endpoint': 'https://ssl.google-analytics.com/collect',
+  // There seems to be a severe memory-leaking bug in node.js' https module, so
+  // we should default to http for now.
+  'endpoint': 'http://www.google-analytics.com/collect',
+  // 'endpoint': 'https://ssl.google-analytics.com/collect',
   'payload': {
     'map': {
       'session': 'cid',
