@@ -16,6 +16,7 @@
     "url": "https://github.com/ef-gy/analyticsd"
   },
   "dependencies": {
+    "daemon": "~1.1.0",
     "minimist": "~1.1.0"
   },
   "license": "MIT",
