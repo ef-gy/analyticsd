@@ -8,6 +8,8 @@ Analytics
 .SH SYNOPSIS
 .B analyticsd [--tid
 .I tracking-id
+.B ] [
+.I --daemon
 .B ]
 .SH DESCRIPTION
 .B analyticsd
@@ -19,13 +21,18 @@ events and sent via the Measurement Protocol.
 .IP --tid
 Set the Tracking ID to associate with events. The default is not set, so events
 will not be tracked after being sent.
+.IP --daemon
+Launch
+.B analyticsd
+in the background, as a daemon. This will also update its PID file (typically
+in /var/run/).
 .SH EXAMPLES
-The daemon will not spawn into the background and you'll have to give it a
-Tracking ID. Typical default command line looks like this:
-.IP "nohup analyticsd --tid UA-XXXXX-Y &"
+The daemon will not spawn into the background by default and you'll have to
+give it a Tracking ID. A typical command line looks like this:
+.IP "analyticsd --tid UA-XXXXX-Y --daemon"
 This sets the Tracking ID to
 .B UA-XXXXX-Y
-and spawns the programme in the background using nohup and &.
+and spawns the programme in the background.
 .SH AUTHORS
 Magnus Deininger <magnus@ef.gy>
 .SH "SEE ALSO"
