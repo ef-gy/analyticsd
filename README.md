@@ -34,10 +34,10 @@ The --tid parameter specifies the Google Analytics property to send data to.
 Have a look at the Google Analytics Admin panel to get this ID if you've
 misplaced yours.
 
-analyticsd will not fork to the background on its own. You could use nohup/& for
-this purpose, like so:
+analyticsd will not fork to the background by default. Use the --daemon flag
+for that.
 
-    # nohup analyticsd --tid UA-XXXXX-Y &
+    # analyticsd --tid UA-XXXXX-Y --daemon
 
 To launch the daemon at boot time, add a line like the previous to your
 /etc/rc.local - before any exit; instructions, if there are any.
