@@ -16,6 +16,9 @@ module.exports = {
     }
   },
   'analyse': {
+    'template': {
+      'page': [ '/virtual/', 'action', ':', 'host' ]
+    },
     'pattern': [
       // OpenSSH patterns
       { 'match': /(.+) ([^ ]+) sshd.([0-9]+).: invalid user (.+) from (.+)/i,
