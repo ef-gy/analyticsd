@@ -21,7 +21,8 @@ module.exports = {
       'cpu-timing': 60000
     },
     'template': {
-      'page': [ '/virtual/', 'action', ':', 'host' ]
+      'page': [ '/virtual/', 'action', ':', 'host' ],
+      'client': [ 'host' ]
     },
     'pattern': [
       // OpenSSH patterns
