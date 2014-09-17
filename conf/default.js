@@ -12,10 +12,14 @@ module.exports = {
       'category': 'ec',
       'action': 'ea',
       'label': 'el',
+      'value': 'ev',
       'page': 'p'
     }
   },
   'analyse': {
+    'periodic': {
+      'cpu-timing': 60000
+    },
     'template': {
       'page': [ '/virtual/', 'action', ':', 'host' ]
     },
@@ -128,5 +132,6 @@ module.exports = {
   'group': 'adm',
   'daemon': false,
   'pid': '/var/run/analyticsd.pid',
-  'include': '/etc/analyticsd/analyticsd.js'
+  'include': '/etc/analyticsd/analyticsd.js',
+  'echo-post': false
 };

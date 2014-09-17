@@ -1,6 +1,6 @@
 {
   "name": "analyticsd",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "analyticsd.js",
   "description": "Daemon to classify syslog events and upload them to Google Analytics",
   "author": {
