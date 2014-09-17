@@ -15,12 +15,12 @@ var tail = require('../lib/tail').tail,
   for (i in configuration.analyse.periodic) {
     if (configuration.analyse.periodic[i]) {
       function run(f,p) {
-        f().forEach(function(analysis) {
+        f(context).forEach(function(analysis) {
           context.post(analysis);
         });
-        setTimeout(run, p, f, p);
+        setTimeout(run, p, f, p, context);
       };
-      run(analyse[i], configuration.analyse.periodic[i]);
+      run(analyse[i], configuration.analyse.periodic[i], context);
     }
   }
 })(mp.context(configuration.tid));

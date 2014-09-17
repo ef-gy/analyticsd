@@ -18,7 +18,8 @@ module.exports = {
   },
   'analyse': {
     'periodic': {
-      'cpu-timing': 60000
+      'cpu-timing': 60000,
+      'bandwidth': 60000
     },
     'template': {
       'page': [ '/virtual/', 'action', ':', 'host' ],
@@ -130,7 +131,8 @@ module.exports = {
     ]
   },
   'threshold': {
-    'cpu-time': 10000
+    'cpu-time': 10000,
+    'bandwidth': 10000,
   },
   'user': 'daemon',
   'group': 'adm',
