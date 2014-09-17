@@ -129,6 +129,9 @@ module.exports = {
                       'address': 3 } }
     ]
   },
+  'threshold': {
+    'cpu-time': 10000
+  },
   'user': 'daemon',
   'group': 'adm',
   'daemon': false,
