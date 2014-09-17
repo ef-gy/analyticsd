@@ -22,7 +22,7 @@ module.exports = {
     },
     'template': {
       'page': [ '/virtual/', 'action', ':', 'host' ],
-      'client': [ 'host' ]
+      'session': [ 'host' ]
     },
     'pattern': [
       // OpenSSH patterns
