@@ -1,7 +1,7 @@
 analyticsd
 ==========
 
-node.js daemon to classify syslog events and upload them to Google Analytics.
+node.js daemon to classify log file events and upload them to Google Analytics.
 This means that by running this daemon you will be able to analyse some events
 that show up in your syslog using Google Analytics, alongside your web site
 access statistics.
@@ -9,6 +9,12 @@ access statistics.
 Log output recognised by this daemon is sent to Google Analytics by means of
 the Measurement Protocol. This means you need to have Universal Analytics
 enabled for your property.
+
+Out of the box this daemon supports syslog events from OpenSSH and scanlogd, as
+well as standard "combined" format HTTP logs and kippo honeypot log files.
+Adding more log formats is a matter of simply adding more regular expressions.
+Additionally, CPU and network usage is translated to events that are also
+logged.
 
 Installation
 ============

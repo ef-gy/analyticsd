@@ -13,8 +13,17 @@ module.exports = {
       'action': 'ea',
       'label': 'el',
       'value': 'ev',
-      'page': 'p'
+      'page': 'p',
+      'agent': 'ua',
+      'referrer': 'dr',
+      'version': 'av'
     }
+  },
+  'strip': {
+    'favicon': /favicon.ico/,
+    'robots': /robots.txt/,
+    'assets-pre': /\/(jpeg|jpg|css|js|script|png)\/.*/i,
+    'assets-post': /.+\.(jpeg|jpg|css|js|png)\/.*/i,
   },
   'analyse': {
     'periodic': {
@@ -127,7 +136,21 @@ module.exports = {
                       'category': 'HoneypotService',
                       'action': 'SSH',
                       'label': 'ConnectionLost',
-                      'address': 3 } }
+                      'address': 3 } },
+      // HTTP logs, 'combined' format
+      { 'match': /([^ ]+) - ([^ ]+) \[(.+)\] "([^ ]+) (.+) ([^ ]+)" ([0-9]+) ([0-9]+) "(.+)" "(.+)"/,
+        'template': { 'date': 3,
+                      'session': [ 1, 2, 10 ],
+                      'type': 'pageview',
+                      'page': 5,
+                      'address': 1,
+                      'agent': 10,
+                      'user': 2,
+                      'method': 4,
+                      'protocol': 6,
+                      'referrer': 9,
+                      'status': 7,
+                      'size': 8 } }
     ]
   },
   'threshold': {

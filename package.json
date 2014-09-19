@@ -1,8 +1,8 @@
 {
   "name": "analyticsd",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "main": "analyticsd.js",
-  "description": "Daemon to classify syslog events and upload them to Google Analytics",
+  "description": "Daemon to classify log file events and upload them to Google Analytics",
   "author": {
     "name": "Magnus Deininger",
     "email": "magnus@ef.gy",
