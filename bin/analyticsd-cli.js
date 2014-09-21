@@ -6,11 +6,11 @@ var tail = require('../lib/tail').tail,
     configuration = require('../lib/configuration');
 
 (function (context) {
-  for (i in configuration.tail) {
-    tail(configuration.tail[i],
+  if (configuration.tail.length > 0) {
+    tail(configuration.tail,
          function (line) { return context.post(analyse.analyse(line)); },
          null, configuration.backfill);
-  };
+  }
 
   for (i in configuration.analyse.periodic) {
     if (configuration.analyse.periodic[i]) {
