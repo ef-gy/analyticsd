@@ -3,22 +3,30 @@
 .\"
 .TH analyticsd 1 "SEPTEMBER 2014" analyticsd "User Manuals"
 .SH NAME
-analyticsd \- analyse parts of syslog and uplaod certain events to Google
-Analytics
+analyticsd \- analyse log files and upload events to Google Analytics
 .SH SYNOPSIS
 .B analyticsd [--tid
 .I tracking-id
 .B ] [
-.I --daemon
-.B ]
+.I options
+.B ... ] [
+.I files
+.B ... ]
 .SH DESCRIPTION
 .B analyticsd
-is a system daemon that analyses syslog messages to send events to Google
-Analytics. The daemon will tail common log files and parse lines with regular
-expressions. Matching lines, e.g. failed SSH logins, are transformed into
-events and sent via the Measurement Protocol.
+is a system daemon that analyses log files to send events to Google Analytics.
+The daemon will tail common log files and parse lines with regular expressions.
+Matching lines, e.g. failed SSH logins, are transformed into events and sent
+via the Measurement Protocol.
+.P
+The daemon will also check other metrics periodically and upload that
+separately. This currently includes CPU and network usage statistics.
 .SH OPTIONS
-.IP --tid
+You can set most of the configuration parameters that aren't nested in any way
+using the command line. The default configuration should be fairly sensible for
+most users, although it won't follow any web logs, only syslogs for scanlogd
+and OpenSSH. The following list of parameters can be set on the command line:
+.IP "--tid ID"
 Set the Tracking ID to associate with events. The default is not set, so events
 will not be tracked after being sent.
 .IP --daemon
@@ -26,6 +34,41 @@ Launch
 .B analyticsd
 in the background, as a daemon. This will also update its PID file (typically
 in /var/run/).
+.IP "--tail FILE"
+A log file to follow. This can be specified multiple times to follow multiple
+files. Using this argument overrides the default list of files to tail.
+.IP "--endpoint URL"
+Where to send Measurement Protocol payload data to. Defaults to the HTTPS URL
+provided by Google Analytics. You could override this if you were to write your
+own, private Measurement Protocol server.
+.IP "--user USER"
+Specifies a user ID or name that the daemon tries to change to after reading
+the configuration file. The default is
+.I daemon
+which is a user that should be able to read most log files.
+.IP "--group GROUP"
+Specifies a gorup ID or name that the daemon tries to change to after reading
+the configuration file. The default is
+.I adm
+which is a group that should be able to read most log files.
+.IP "--pid PIDFILE"
+A file where
+.B analyticsd
+will write its process ID to. Defaults to
+.I /var/run/analyticsd.pid
+but can be overriden as necessary. This file is only written iff the programme
+is launched as a daemon.
+.IP "--include FILE"
+Includes a configuration file. By default the package's
+.I conf/default.js
+is loaded, which includes an instruction to load
+.I /etc/analyticsd/analyticsd.js
+and then command line arguments are loaded over that to allow for overrides.
+You can specify additional overloads as necessary. Files that can't be loaded
+are ignored.
+.IP --echo-post
+Echoes any POST requests to the specified endpoint URL to stdout. Useful when
+debugging new match rules.
 .SH EXAMPLES
 The daemon will not spawn into the background by default and you'll have to
 give it a Tracking ID. A typical command line looks like this:
@@ -33,6 +76,34 @@ give it a Tracking ID. A typical command line looks like this:
 This sets the Tracking ID to
 .B UA-XXXXX-Y
 and spawns the programme in the background.
+.SH FILES
+The package's
+.B conf/default.js
+is loaded by the daemon to set up a somewhat sane initial environment,
+including log line matching rules. This file contains an instruction to load
+.B /etc/analyticsd/analyticsd.js
+which can be used for site-wide overrides - this would be a good spot to
+specify the Google Analytics Tracking ID, or to make the daemon start in the
+background.
+.P
+If the daemon is started in the background, by default it will write its
+process ID to
+.B /var/run/analyticsd.pid
+.P
+Further, the default files that are tailed are:
+.B /var/log/auth.log
+and
+.B /var/log/daemon.log
+.P
+This can be overriden using the
+.B tail
+option as described above - or in the site-wide configuration file.
+.P
+Files that are tailed do not have to exist when the process starts, and they
+can be logrotated while the daemon runs.
 .SH AUTHORS
 Magnus Deininger <magnus@ef.gy>
-.SH "SEE ALSO"
+.SH DISCLOSURE
+Magnus, the author of this programme, does work for Google. However, this
+package was entirely written in the author's spare time and is not endorsed by
+Google in any way whatsoever.
