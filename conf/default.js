@@ -155,6 +155,9 @@ module.exports = {
                       'referrer': 9,
                       'status': 7,
                       'size': 8 } }
+    ],
+    'filter': [
+      { 'status': /^(1[0-9]{2}|30[1237])$/ }
     ]
   },
   'threshold': {
