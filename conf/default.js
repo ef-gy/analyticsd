@@ -161,7 +161,7 @@ module.exports = {
       { 'status': /^(1[0-9]{2}|30[1237])$/ }
     ],
     'derive': [
-      { 'page': /(\/(atom|rss)\/|\.(atom|rss)$)/,
+      { 'page': /(\/(atom|rss)\/|\.(atom|rss)$|sitemap\.xml$)/,
         'non-interactive': '1' }
     ]
   },
