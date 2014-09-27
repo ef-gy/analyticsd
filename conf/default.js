@@ -16,7 +16,8 @@ module.exports = {
       'page': 'p',
       'agent': 'ua',
       'referrer': 'dr',
-      'version': 'av'
+      'version': 'av',
+      'non-interactive': 'ni'
     }
   },
   'strip': {
@@ -158,6 +159,10 @@ module.exports = {
     ],
     'filter': [
       { 'status': /^(1[0-9]{2}|30[1237])$/ }
+    ],
+    'derive': [
+      { 'page': /(\/(atom|rss)\/|\.(atom|rss)$)/,
+        'non-interactive': '1' }
     ]
   },
   'threshold': {
