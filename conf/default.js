@@ -24,7 +24,7 @@ module.exports = {
     'favicon': /favicon.ico/,
     'robots': /robots.txt/,
     'assets-pre': /\/(jpeg|jpg|css|js|script|png)\/.*/i,
-    'assets-post': /.+\.(jpeg|jpg|css|js|png)$/i,
+    'assets-post': /.+\.(jpeg|jpg|css|js|png|gif)$/i,
   },
   'analyse': {
     'periodic': {
