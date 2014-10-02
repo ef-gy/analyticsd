@@ -69,6 +69,20 @@ are ignored.
 .IP --echo-post
 Echoes any POST requests to the specified endpoint URL to stdout. Useful when
 debugging new match rules.
+.IP --tor
+Tries to determine if connections originated from Tor exit nodes. This relies
+on the public "ip-port.exitlist.torproject.org" DNS lookup method. The lookup
+is only performed when a log line contained an IP address which is set as the
+address field of the analysis.
+.IP
+This is actually a quite expensive process and should not be used unless you're
+really interested in this metric. Also, you need to set up a custom dimension
+mapping for the
+.I network
+field, because Google Analytics doesn't have a native dimension for this.
+.IP "--ip ADDRESS"
+Overrides the assumed IPv4 address of the host that the programme is running
+on. This is currently only used when Tor lookups are enabled.
 .SH EXAMPLES
 The daemon will not spawn into the background by default and you'll have to
 give it a Tracking ID. A typical command line looks like this:

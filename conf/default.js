@@ -178,5 +178,6 @@ module.exports = {
   'daemon': false,
   'pid': '/var/run/analyticsd.pid',
   'include': '/etc/analyticsd/analyticsd.js',
-  'echo-post': false
+  'echo-post': false,
+  'tor': false
 };
