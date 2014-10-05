@@ -66,6 +66,17 @@ is loaded, which includes an instruction to load
 and then command line arguments are loaded over that to allow for overrides.
 You can specify additional overloads as necessary. Files that can't be loaded
 are ignored.
+.IP "--json JSON"
+Parses the argument as a literal JSON string, which should have the same
+structure as one of the configuration files. For example, to set the
+.I tor
+variable, you could pass flags like
+.I --json '{"tor":true}'
+.IP
+Note that this flag is most useful for passing nested configuration options, or
+when you're calling analyticsd from a different process that can easily export
+JSON. For most other uses it will probably be more convenient to just use the
+normal command line flags.
 .IP --echo-post
 Echoes any POST requests to the specified endpoint URL to stdout. Useful when
 debugging new match rules.
