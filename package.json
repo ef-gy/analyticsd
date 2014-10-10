@@ -1,6 +1,6 @@
 {
   "name": "analyticsd",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "main": "analyticsd.js",
   "description": "Daemon to classify log file events and upload them to Google Analytics",
   "keywords": [
