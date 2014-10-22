@@ -29,3 +29,5 @@ node_modules
 
 # VIM swap files
 *.swp
+
+*.heapsnapshot

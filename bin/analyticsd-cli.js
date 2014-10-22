@@ -1,5 +1,5 @@
 #!/usr/bin/env nodejs
 
-var daemon = require('../lib/daemon').daemon;
+require('idle-gc').start();
 
-daemon();
+require('../lib/daemon').daemon();

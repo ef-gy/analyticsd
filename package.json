@@ -1,6 +1,6 @@
 {
   "name": "analyticsd",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "main": "analyticsd.js",
   "description": "Daemon to classify log file events and upload them to Google Analytics",
   "keywords": [
@@ -26,7 +26,8 @@
   "dependencies": {
     "daemon": "~1.1.0",
     "minimist": "~1.1.0",
-    "node-uuid": "~1.4.1"
+    "node-uuid": "~1.4.1",
+    "idle-gc": "~1.0.0"
   },
   "license": "MIT",
   "preferGlobal": true,
