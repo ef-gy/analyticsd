@@ -1,5 +1,9 @@
-#!/usr/bin/env nodejs
+#!/usr/bin/nodejs --expose-gc
 
-require('idle-gc').start();
+if (typeof gc === 'function') {
+  setInterval(function() {
+    gc();
+  }, 5000);
+}
 
 require('../lib/daemon').daemon();
