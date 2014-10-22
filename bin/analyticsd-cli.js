@@ -6,4 +6,12 @@ if (typeof gc === 'function') {
   }, 5000);
 }
 
+try {
+  require('heapdump');
+} catch (e) {
+  console.log (e);
+}
+
+process.title = 'analyticsd';
+
 require('../lib/daemon').daemon();
