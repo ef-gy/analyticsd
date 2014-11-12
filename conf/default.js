@@ -1,6 +1,8 @@
 module.exports = {
   'tail': ['/var/log/auth.log', '/var/log/daemon.log'],
   'tid': null,
+  'domain': undefined,
+  'host': undefined,
   // 'endpoint': 'http://www.google-analytics.com/collect',
   'endpoint': 'https://ssl.google-analytics.com/collect',
   'payload': {
@@ -17,7 +19,8 @@ module.exports = {
       'agent': 'ua',
       'referrer': 'dr',
       'version': 'av',
-      'non-interactive': 'ni'
+      'non-interactive': 'ni',
+      'fqdn': 'dh'
     }
   },
   'strip': {
@@ -33,7 +36,8 @@ module.exports = {
     },
     'template': {
       'page': [ '/virtual/', 'action', ':', 'host' ],
-      'session': [ 'host' ]
+      'session': [ 'host' ],
+      'fqdn': [ 'host', '.', 'domain' ]
     },
     'pattern': [
       // OpenSSH patterns
