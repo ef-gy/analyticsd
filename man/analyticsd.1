@@ -77,6 +77,9 @@ Note that this flag is most useful for passing nested configuration options, or
 when you're calling analyticsd from a different process that can easily export
 JSON. For most other uses it will probably be more convenient to just use the
 normal command line flags.
+.IP
+Also note that for HTTP and HTTPS URIs to JSON files are also acceptable, though
+the include flag will also allow these.
 .IP --echo-post
 Echoes any POST requests to the specified endpoint URL to stdout. Useful when
 debugging new match rules.
