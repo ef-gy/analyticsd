@@ -60,9 +60,9 @@ but can be overriden as necessary. This file is only written iff the programme
 is launched as a daemon.
 .IP "--include FILE"
 Includes a configuration file. By default the package's
-.I conf/default.js
+.I conf/default.json
 is loaded, which includes an instruction to load
-.I /etc/analyticsd/analyticsd.js
+.I /etc/analyticsd/analyticsd.json
 and then command line arguments are loaded over that to allow for overrides.
 You can specify additional overloads as necessary. Files that can't be loaded
 are ignored.
@@ -103,10 +103,10 @@ This sets the Tracking ID to
 and spawns the programme in the background.
 .SH FILES
 The package's
-.B conf/default.js
+.B conf/default.json
 is loaded by the daemon to set up a somewhat sane initial environment,
 including log line matching rules. This file contains an instruction to load
-.B /etc/analyticsd/analyticsd.js
+.B /etc/analyticsd/analyticsd.json
 which can be used for site-wide overrides - this would be a good spot to
 specify the Google Analytics Tracking ID, or to make the daemon start in the
 background.

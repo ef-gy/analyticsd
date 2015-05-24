@@ -195,7 +195,7 @@
   "group": "adm",
   "daemon": false,
   "pid": "/var/run/analyticsd.pid",
-  "include": "/etc/analyticsd/analyticsd.js",
+  "include": "/etc/analyticsd/analyticsd.json",
   "echo-post": false,
   "tor": false
 }
